@@ -2556,3 +2556,134 @@ Served asset /users.js - 304 Not Modified (0ms)
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-01-31 00:31:51 +0530
 Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-01-31 00:43:56 +0530
+Connecting to database specified by database.yml
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` [0m
+  Rendered users/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 93ms (Views: 50.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-01-31 00:43:56 +0530
+Served asset /application.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-01-31 00:43:56 +0530
+Served asset /users.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-01-31 00:43:56 +0530
+Served asset /jquery.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-01-31 00:43:56 +0530
+Served asset /jquery_ujs.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2013-01-31 00:43:56 +0530
+Served asset /posts.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2013-01-31 00:43:56 +0530
+Served asset /posts.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-01-31 00:43:56 +0530
+Served asset /users.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-01-31 00:43:56 +0530
+Served asset /application.js - 304 Not Modified (6ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2013-01-31 00:44:14 +0530
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (29.7ms)
+Completed 500 Internal Server Error in 31ms
+
+ActionController::RoutingError (No route matches {:action=>"show", :controller=>"users"}):
+  app/views/users/new.html.erb:13:in `block in _app_views_users_new_html_erb__629623103_83110220'
+  app/views/users/new.html.erb:2:in `_app_views_users_new_html_erb__629623103_83110220'
+
+
+  Rendered /home/anuroop/.rvm/gems/ruby-1.9.3-p374/gems/actionpack-3.2.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-01-31 00:46:08 +0530
+Connecting to database specified by database.yml
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` [0m
+  Rendered users/index.html.erb within layouts/application (26.8ms)
+Completed 500 Internal Server Error in 94ms
+
+ActionView::Template::Error (undefined method `show_user_path' for #<#<Class:0xb6365e00>:0xb63644d8>):
+    4: <%@users.each do |u|%>
+    5:   <%=u.name%>
+    6:   <%=u.email%><br>
+    7: <%=link_to "show User",show_user_path(@user)%>
+    8: <%end%>
+    9: <%=link_to "create User",new_user_path%>
+    10: 
+  app/views/users/index.html.erb:7:in `block in _app_views_users_index_html_erb___391065676_91078890'
+  app/views/users/index.html.erb:4:in `each'
+  app/views/users/index.html.erb:4:in `_app_views_users_index_html_erb___391065676_91078890'
+
+
+  Rendered /home/anuroop/.rvm/gems/ruby-1.9.3-p374/gems/actionpack-3.2.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  Rendered /home/anuroop/.rvm/gems/ruby-1.9.3-p374/gems/actionpack-3.2.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /home/anuroop/.rvm/gems/ruby-1.9.3-p374/gems/actionpack-3.2.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (8.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-01-31 00:47:20 +0530
+Connecting to database specified by database.yml
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` [0m
+  Rendered users/index.html.erb within layouts/application (27.1ms)
+Completed 500 Internal Server Error in 93ms
+
+ActionView::Template::Error (undefined method `user_show_path' for #<#<Class:0xb5dd8ec4>:0xb5dd75b0>):
+    4: <%@users.each do |u|%>
+    5:   <%=u.name%>
+    6:   <%=u.email%><br>
+    7: <%=link_to "show User",user_show_path(@user)%>
+    8: <%end%>
+    9: <%=link_to "create User",new_user_path%>
+    10: 
+  app/views/users/index.html.erb:7:in `block in _app_views_users_index_html_erb___998237192_78679550'
+  app/views/users/index.html.erb:4:in `each'
+  app/views/users/index.html.erb:4:in `_app_views_users_index_html_erb___998237192_78679550'
+
+
+  Rendered /home/anuroop/.rvm/gems/ruby-1.9.3-p374/gems/actionpack-3.2.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+  Rendered /home/anuroop/.rvm/gems/ruby-1.9.3-p374/gems/actionpack-3.2.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /home/anuroop/.rvm/gems/ruby-1.9.3-p374/gems/actionpack-3.2.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (8.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-01-31 00:48:34 +0530
+Connecting to database specified by database.yml
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` [0m
+  Rendered users/index.html.erb within layouts/application (23.2ms)
+Completed 500 Internal Server Error in 89ms
+
+ActionController::RoutingError (No route matches {:action=>"show", :controller=>"users", :id=>nil}):
+  app/views/users/index.html.erb:7:in `block in _app_views_users_index_html_erb__962955368_78355130'
+  app/views/users/index.html.erb:4:in `each'
+  app/views/users/index.html.erb:4:in `_app_views_users_index_html_erb__962955368_78355130'
+
+
+  Rendered /home/anuroop/.rvm/gems/ruby-1.9.3-p374/gems/actionpack-3.2.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (1.3ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+Migrating to CreateUsers (20130126155322)
+Migrating to AddCols (20130129161744)
+Migrating to CreatePosts (20130130184357)
+  [1m[35m (155.4ms)[0m  CREATE TABLE `posts` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (57.7ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20130130184357')[0m
+Migrating to AddAtt (20130130194922)
+  [1m[35m (323.5ms)[0m  ALTER TABLE `users` ADD `contact_no` int(11)
+  [1m[36m (57.7ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20130130194922')[0m
+  [1m[35m (0.2ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 
