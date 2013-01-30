@@ -1,0 +1,11 @@
+<html>
+<h1>INDEX</H1>
+ 
+<%@users.each do |u|%>
+  <%=u.name%>
+  <%=u.email%><br>
+
+<%end%>
+<%=link_to "create User",new_user_path%>
+
+</html>
