@@ -1,4 +1,9 @@
 <html>
-<%= user.name %>
+<%= @user.name %>
+<%= @user.roll%>
+<%= @user.email%>
+<%= @user.dept%>
+<%= @user.age%>
+<%=link_to "edit User",edit_user_path(@user)%>
 
 </html>

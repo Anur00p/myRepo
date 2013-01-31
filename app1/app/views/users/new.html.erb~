@@ -12,4 +12,5 @@
 <%=f.text_field :age%></h2>
 
 <%end%>
+<%=link_to "submit"%>
 </html>
