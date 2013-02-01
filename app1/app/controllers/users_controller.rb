@@ -23,8 +23,9 @@ class UsersController < ApplicationController
  end
 
  def update
-  user=User.find(params[:user])
-  user.update_attribute
+  user=User.find(params[:id])
+  user.update_attributes(params[:user])
+  user.save!
   redirect_to users_path
  end
 
