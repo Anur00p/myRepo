@@ -11,12 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130130194922) do
+ActiveRecord::Schema.define(:version => 20130201054254) do
 
   create_table "posts", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "title"
+    t.string   "description"
+    t.integer  "user_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
+
+  add_index "posts", ["user_id"], :name => "posts_user_id_fk"
 
   create_table "users", :force => true do |t|
     t.string   "name"
@@ -28,5 +33,7 @@ ActiveRecord::Schema.define(:version => 20130130194922) do
     t.integer  "age"
     t.integer  "contact_no"
   end
+
+  add_foreign_key "posts", "users", :name => "posts_user_id_fk"
 
 end
