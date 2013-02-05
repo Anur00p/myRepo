@@ -9,10 +9,15 @@ class UsersController < ApplicationController
   @user=User.new
  end
 
- def create
-  user=User.create(params[:user])
-  redirect_to users_path
- end
+def create
+  @user=User.create(params[:user])
+if @user.save
+ UserMailer.welcome_email(@user).deliver
+else
+ render :action=>'create'
+end
+ redirect_to users_path
+end  
 
  def show
   @user=User.find(params[:id])
@@ -30,10 +35,14 @@ class UsersController < ApplicationController
  end
 
  def destroy
-  user=User.find(params[:id])
-  user.destroy
-  redirect_to users_path
- end
+user=User.find(params[:id])
+@posts=Post.where(:user_id=>user.id)
+@posts.each do |post|
+post.destroy
+end
+user.destroy
+redirect_to users_path
+end
 
 end
 

@@ -1,11 +1,27 @@
 <html>
-<%= @user.name %>
-<%= @user.roll%>
-<%= @user.email%>
-<%= @user.dept%>
-<%= @user.age%>
+<table border="2">
+<tr>
+<td><strong>Name</strong></td>
+<td><strong>Roll</strong></td>
+<td><strong>Email</strong></td>
+<td><strong>Dept</strong></td>
+<td><strong>Age</strong></td>
+<td><strong>Edit</strong></td>
+<td><strong>Delete</strong></td>
+<td><strong>Post</strong></td>
+<td><strong>Show Post</strong></td>
+</tr>
+<tr>
+<td><%= @user.name %></td>
+<td><%= @user.roll%></td>
+<td><%= @user.email%></td>
+<td><%= @user.dept%></td>
+<td><%= @user.age%></td>
 
-<%=link_to "edit User",edit_user_path(@user)%>
-<%=link_to "delete User",user_path(@user),:method=>:delete%>
-<%=link_to "post",new_user_post_path(@user)%>
+<td><%=link_to "edit User",edit_user_path(@user)%></td>
+<td><%=link_to "delete User",user_path(@user),:method=>:delete%></td>
+<td><%=link_to "post",new_user_post_path(@user)%></td>
+<td><%=link_to "show post",user_post_path(@user)%></td>
+</tr>
+</table>
 </html>

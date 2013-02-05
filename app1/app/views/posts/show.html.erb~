@@ -1,9 +1,18 @@
 <html>
+<h1>SHOW_POST</h1>
+<table border="2">
 <%@posts.each do |p|%>
-Title:<%=p.title%><br>
-Description:<%=p.description%><br>
+<tr>
+<td>Title</td>
+<td>Description</td>
+</tr>
+<tr>
+<td><%=p.title%></td>
+<td><%=p.description%><td>
+</tr>
 <%=link_to "edit post",edit_user_post_path(p)%>
 <%=link_to "delete post",user_post_path(p),:method=>:delete%>
-<hr>
+</table>
 <%end%>
+
 </html>
