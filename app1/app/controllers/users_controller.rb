@@ -33,16 +33,12 @@ end
   user.save!
   redirect_to users_path
  end
-
- def destroy
-user=User.find(params[:id])
-@posts=Post.where(:user_id=>user.id)
-@posts.each do |post|
-post.destroy
+def destroy
+ user=User.find(params[:id])
+ user.destroy
+ redirect_to users_path
 end
-user.destroy
-redirect_to users_path
-end
+ 
 
 end
 
