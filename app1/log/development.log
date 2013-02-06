@@ -26718,3 +26718,493 @@ Served asset /application.js - 304 Not Modified (1ms)
 
 Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-02-06 17:34:52 +0530
 Served asset /users.js - 304 Not Modified (0ms)
+Connecting to database specified by database.yml
+  [1m[36m (161.9ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (224.4ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)
+  [1m[36m (1.8ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+Migrating to CreateUsers (20130126155322)
+  [1m[35m (169.1ms)[0m  CREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `roll` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (49.5ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20130126155322')[0m
+Migrating to AddCols (20130129161744)
+  [1m[35m (328.0ms)[0m  ALTER TABLE `users` ADD `email` varchar(255)
+  [1m[36m (284.1ms)[0m  [1mALTER TABLE `users` ADD `dept` varchar(255)[0m
+  [1m[35m (300.2ms)[0m  ALTER TABLE `users` ADD `age` int(11)
+  [1m[36m (59.9ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20130129161744')[0m
+Migrating to AddAtt (20130130194922)
+  [1m[35m (355.5ms)[0m  ALTER TABLE `users` ADD `contact_no` int(11)
+  [1m[36m (49.6ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20130130194922')[0m
+Migrating to CreatePosts (20130201054254)
+  [1m[35m (187.9ms)[0m  CREATE TABLE `posts` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `description` varchar(255), `user_id` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (350.6ms)[0m  [1mALTER TABLE `posts` ADD CONSTRAINT `posts_user_id_fk` FOREIGN KEY (`user_id`) REFERENCES `users`(id)[0m
+  [1m[35m (60.3ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20130201054254')
+Migrating to Rename (20130205150606)
+  [1m[36m (0.3ms)[0m  [1mSHOW COLUMNS FROM `users` LIKE 'name'[0m
+  [1m[35m (330.9ms)[0m  ALTER TABLE `users` CHANGE `name` `user_name` varchar(255) DEFAULT NULL
+  [1m[36m (57.9ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20130205150606')[0m
+  [1m[35m (0.2ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 
+  [1m[36m (0.2ms)[0m  [1m
+ SELECT fk.referenced_table_name as 'to_table'
+ ,fk.referenced_column_name as 'primary_key'
+ ,fk.column_name as 'column'
+ ,fk.constraint_name as 'name'
+ FROM information_schema.key_column_usage fk
+ WHERE fk.referenced_column_name is not null
+ AND fk.table_schema = 'app1_development'
+ AND fk.table_name = 'posts'
+ [0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `posts`
+  [1m[36m (0.4ms)[0m  [1m
+ SELECT fk.referenced_table_name as 'to_table'
+ ,fk.referenced_column_name as 'primary_key'
+ ,fk.column_name as 'column'
+ ,fk.constraint_name as 'name'
+ FROM information_schema.key_column_usage fk
+ WHERE fk.referenced_column_name is not null
+ AND fk.table_schema = 'app1_development'
+ AND fk.table_name = 'users'
+ [0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `users`
+
+
+Started GET "/" for 127.0.0.1 at 2013-02-06 17:49:30 +0530
+Connecting to database specified by database.yml
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` [0m
+  Rendered users/index.html.erb within layouts/application (3.1ms)
+  Rendered layouts/Shared/_header.html.erb (0.3ms)
+  Rendered layouts/Shared/_footer.html.erb (0.3ms)
+Completed 200 OK in 90ms (Views: 53.1ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-02-06 17:49:31 +0530
+Served asset /application.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2013-02-06 17:49:31 +0530
+Served asset /posts.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-02-06 17:49:31 +0530
+Served asset /users.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-02-06 17:49:31 +0530
+Served asset /jquery.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-02-06 17:49:31 +0530
+Served asset /users.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-02-06 17:49:31 +0530
+Served asset /application.js - 304 Not Modified (16ms)
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2013-02-06 17:49:31 +0530
+Served asset /posts.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-02-06 17:49:31 +0530
+Served asset /jquery_ujs.js - 304 Not Modified (1ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2013-02-06 17:49:33 +0530
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (7.9ms)
+  Rendered users/new.html.erb within layouts/application (8.8ms)
+  Rendered layouts/Shared/_header.html.erb (0.0ms)
+  Rendered layouts/Shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 33ms (Views: 21.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-02-06 17:49:34 +0530
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2013-02-06 17:49:34 +0530
+Served asset /posts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2013-02-06 17:49:34 +0530
+Served asset /posts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-02-06 17:49:34 +0530
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-02-06 17:49:34 +0530
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-02-06 17:49:34 +0530
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-02-06 17:49:34 +0530
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-02-06 17:49:34 +0530
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2013-02-06 17:50:12 +0530
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hzKG2p9UXPa6KmiuiksyBkSwMwAJy9jwCzSzM2sXYA4=", "user"=>{"user_name"=>"Anuroop", "email"=>"anuroop@gmail.com", "dept"=>"It", "roll"=>"15", "age"=>"23", "contact_no"=>"24028788"}, "commit"=>"Create User"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'anuroop@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO `users` (`age`, `contact_no`, `created_at`, `dept`, `email`, `roll`, `updated_at`, `user_name`) VALUES (23, 24028788, '2013-02-06 12:20:12', 'It', 'anuroop@gmail.com', 15, '2013-02-06 12:20:12', 'Anuroop')
+  [1m[36m (71.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE (`users`.`email` = BINARY 'anuroop@gmail.com' AND `users`.`id` != 1) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  Rendered user_mailer/welcome_email.html.erb (0.4ms)
+
+Sent mail to anuroop@gmail.com (36ms)
+Date: Wed, 06 Feb 2013 17:50:13 +0530
+From: from@example.com
+To: anuroop@gmail.com
+Message-ID: <51124a7d43964_ab7253169c059252@ubuntu.mail>
+Subject: Welcome !!!!
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>Welcome to example.com, Anuroop</h1>
+    <p>
+      You have successfully signed up to example.com
+    </p>
+    <p>
+      To login to the site, just follow this link: http://example.com/login.
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+
+Redirected to http://0.0.0.0:3000/users
+Completed 302 Found in 889ms (ActiveRecord: 73.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2013-02-06 17:50:13 +0530
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` [0m
+  Rendered users/index.html.erb within layouts/application (0.6ms)
+  Rendered layouts/Shared/_header.html.erb (0.0ms)
+  Rendered layouts/Shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 9ms (Views: 7.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2013-02-06 17:50:13 +0530
+Served asset /posts.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-02-06 17:50:13 +0530
+Served asset /application.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-02-06 17:50:13 +0530
+Served asset /jquery_ujs.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-02-06 17:50:13 +0530
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-02-06 17:50:13 +0530
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-02-06 17:50:13 +0530
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2013-02-06 17:50:13 +0530
+Served asset /posts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-02-06 17:50:13 +0530
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2013-02-06 17:50:17 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  Rendered users/show.html.erb within layouts/application (1.9ms)
+  Rendered layouts/Shared/_header.html.erb (0.0ms)
+  Rendered layouts/Shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 11ms (Views: 9.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-02-06 17:50:17 +0530
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2013-02-06 17:50:17 +0530
+Served asset /posts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-02-06 17:50:17 +0530
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-02-06 17:50:17 +0530
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-02-06 17:50:17 +0530
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-02-06 17:50:17 +0530
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-02-06 17:50:17 +0530
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2013-02-06 17:50:17 +0530
+Served asset /posts.js - 304 Not Modified (0ms)
+
+
+Started GET "/users/1/posts/new" for 127.0.0.1 at 2013-02-06 17:50:21 +0530
+Processing by PostsController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  Rendered posts/new.html.erb within layouts/application (3.0ms)
+  Rendered layouts/Shared/_header.html.erb (0.0ms)
+  Rendered layouts/Shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 19ms (Views: 10.1ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-02-06 17:50:21 +0530
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2013-02-06 17:50:21 +0530
+Served asset /posts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-02-06 17:50:21 +0530
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-02-06 17:50:21 +0530
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-02-06 17:50:21 +0530
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-02-06 17:50:21 +0530
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2013-02-06 17:50:21 +0530
+Served asset /posts.css - 304 Not Modified (29ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-02-06 17:50:21 +0530
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started POST "/users/1/posts" for 127.0.0.1 at 2013-02-06 17:50:44 +0530
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hzKG2p9UXPa6KmiuiksyBkSwMwAJy9jwCzSzM2sXYA4=", "post"=>{"title"=>"Hi", "description"=>"hw r u?"}, "commit"=>"Create Post", "user_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `posts` (`created_at`, `description`, `title`, `updated_at`, `user_id`) VALUES ('2013-02-06 12:20:44', 'hw r u?', 'Hi', '2013-02-06 12:20:44', 1)[0m
+  [1m[35m (45.4ms)[0m  COMMIT
+Redirected to http://0.0.0.0:3000/users/1
+Completed 302 Found in 88ms (ActiveRecord: 45.9ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2013-02-06 17:50:44 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  Rendered users/show.html.erb within layouts/application (1.1ms)
+  Rendered layouts/Shared/_header.html.erb (0.0ms)
+  Rendered layouts/Shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 9ms (Views: 8.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-02-06 17:50:45 +0530
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-02-06 17:50:45 +0530
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2013-02-06 17:50:45 +0530
+Served asset /posts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-02-06 17:50:45 +0530
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-02-06 17:50:45 +0530
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2013-02-06 17:50:45 +0530
+Served asset /posts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-02-06 17:50:45 +0530
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-02-06 17:50:45 +0530
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/users/1/posts/1" for 127.0.0.1 at 2013-02-06 17:50:47 +0530
+Processing by PostsController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT `posts`.* FROM `posts` WHERE `posts`.`user_id` = 1[0m
+  Rendered posts/show.html.erb within layouts/application (1.2ms)
+  Rendered layouts/Shared/_header.html.erb (0.0ms)
+  Rendered layouts/Shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 11ms (Views: 8.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-02-06 17:50:47 +0530
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2013-02-06 17:50:47 +0530
+Served asset /posts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-02-06 17:50:47 +0530
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-02-06 17:50:47 +0530
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-02-06 17:50:47 +0530
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2013-02-06 17:50:47 +0530
+Served asset /posts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-02-06 17:50:47 +0530
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-02-06 17:50:47 +0530
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/users/1/posts/1/edit" for 127.0.0.1 at 2013-02-06 17:50:56 +0530
+Processing by PostsController#edit as HTML
+  Parameters: {"user_id"=>"1", "id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT `posts`.* FROM `posts` WHERE `posts`.`user_id` = 1 AND `posts`.`id` = 1 LIMIT 1[0m
+  Rendered posts/edit.html.erb within layouts/application (2.5ms)
+  Rendered layouts/Shared/_header.html.erb (0.0ms)
+  Rendered layouts/Shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 26ms (Views: 22.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-02-06 17:50:56 +0530
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-02-06 17:50:56 +0530
+Served asset /users.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2013-02-06 17:50:56 +0530
+Served asset /posts.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-02-06 17:50:56 +0530
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-02-06 17:50:56 +0530
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2013-02-06 17:50:56 +0530
+Served asset /posts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-02-06 17:50:56 +0530
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-02-06 17:50:56 +0530
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started PUT "/users/1/posts/1" for 127.0.0.1 at 2013-02-06 17:51:05 +0530
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hzKG2p9UXPa6KmiuiksyBkSwMwAJy9jwCzSzM2sXYA4=", "post"=>{"title"=>"Hi", "description"=>"hw r u??"}, "commit"=>"Update Post", "user_id"=>"1", "id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT `posts`.* FROM `posts` WHERE `posts`.`user_id` = 1 AND `posts`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mUPDATE `posts` SET `description` = 'hw r u??', `updated_at` = '2013-02-06 12:21:05' WHERE `posts`.`id` = 1[0m
+  [1m[35m (59.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  COMMIT
+Redirected to http://0.0.0.0:3000/users/1/posts/1
+Completed 302 Found in 65ms (ActiveRecord: 59.7ms)
+
+
+Started GET "/users/1/posts/1" for 127.0.0.1 at 2013-02-06 17:51:05 +0530
+Processing by PostsController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mPost Load (0.3ms)[0m  SELECT `posts`.* FROM `posts` WHERE `posts`.`user_id` = 1
+  Rendered posts/show.html.erb within layouts/application (0.7ms)
+  Rendered layouts/Shared/_header.html.erb (0.0ms)
+  Rendered layouts/Shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 11ms (Views: 9.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-02-06 17:51:05 +0530
+Served asset /application.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-02-06 17:51:05 +0530
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-02-06 17:51:05 +0530
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-02-06 17:51:05 +0530
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2013-02-06 17:51:05 +0530
+Served asset /posts.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2013-02-06 17:51:05 +0530
+Served asset /posts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-02-06 17:51:05 +0530
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-02-06 17:51:05 +0530
+Served asset /application.js - 304 Not Modified (1ms)
