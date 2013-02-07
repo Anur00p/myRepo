@@ -9,6 +9,6 @@
 <body>
 <%=  render :partial => 'layouts/Shared/header' %>
 <%= yield %>
-
+<%=  render :partial => 'layouts/Shared/footer' %>
 </body>
 </html>

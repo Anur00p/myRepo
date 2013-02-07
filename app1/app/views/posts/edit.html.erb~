@@ -1,6 +1,11 @@
 <html>
 <h1>EDIT_POST</h1>
 <%=form_for @posts,:url=>user_post_path do |f|%>
-<%= render :partial => "frm" %>
+<h2><%=f.label :title%>
+<%=f.text_field :title%></h2>
+<h2><%=f.label :description%>
+<%=f.text_field :description%></h2>
+<%= f.submit%>
 <%end%>
+
 </html>
