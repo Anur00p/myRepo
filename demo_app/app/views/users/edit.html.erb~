@@ -1,0 +1,5 @@
+<html>
+<h1>EDIT_USER</h1>
+<%= render :partial => "form" %>
+
+</html>
