@@ -4,18 +4,18 @@
 <tr>
 <td><strong>Name</strong></td>
 <td><strong>Email</strong></td>
-<td><strong>Show</strong></td>
-<td><strong>Edit</strong></td>
+<td><strong>Show</strong></td
 <td><strong>Destroy</strong></td>
 
 </tr>
-<%@users.each do |u|%>
+<%@users.each do |u|%>>
+<td><strong>Edit</strong></td>
 <tr>
 <td> <%=u.name%></td>
 <td> <%=u.email%></td>
-<td><%=link_to "show User",user_path(u)%></td>
-<td><%=link_to "edit User",edit_user_path(@user)%></td>
-<td><%=link_to "delete User",user_path(@user),:method=>:delete%></td>
+<td><%=link_to "show User",user%></td>
+<td><%=link_to "edit User",edit_user_path(u)%></td>
+<td><%=link_to "delete User",user,method: :delete, data:{confirm : 'r u sure?'}%></td>
 
 
 <%end%>
