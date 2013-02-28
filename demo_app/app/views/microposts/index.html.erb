@@ -1,0 +1,26 @@
+<html>
+<h1>INDEX</H1>
+<table border="2"> 
+<tr>
+<td><strong>Content</strong></td>
+<td><strong>User</strong></td>
+<td><strong>Show</strong></td>
+<td><strong>Edit</strong></td>
+<td><strong>Destroy</strong></td>
+
+</tr>
+<%@microposts.each do |m|%>
+<tr>
+<td> <%=m.content%></td>
+<td> <%=m.user_id%></td>
+<td><%=link_to "show ",micropost_path(m)%></td>
+<td><%=link_to "edit ",edit_micropost_path(m)%></td>
+<td><%=link_to "delete ",micropost_path(m),:method=>:delete%></td>
+
+
+<%end%>
+</tr>
+</table>
+<%=link_to "create micropost",new_micropost_path%>
+
+</html>

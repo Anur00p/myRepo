@@ -1,0 +1,22 @@
+<html>
+<h1>SHOW_Micropost</h1>
+<table border="2">
+<tr>
+<td><strong>Content</strong></td>
+<td><strong>User</strong></td>
+<td><strong>Edit</strong></td>
+
+
+
+</tr>
+<tr>
+<td><%= @micropost.content %></td>
+<td><%= @micropost.user_id %></td>
+
+
+<td><%=link_to "edit ",edit_micropost_path(@micropost)%></td>
+
+</tr>
+</table>
+<%=link_to "BACK ",microposts_path%>
+</html>

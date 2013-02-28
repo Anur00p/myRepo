@@ -1,0 +1,26 @@
+<html>
+<h1>INDEX</H1>
+<table border="2"> 
+<tr>
+<td><strong>Name</strong></td>
+<td><strong>Email</strong></td>
+<td><strong>Show</strong></td>
+<td><strong>Edit</strong></td>
+<td><strong>Destroy</strong></td>
+
+</tr>
+<%@users.each do |u|%>
+<tr>
+<td> <%=u.name%></td>
+<td> <%=u.email%></td>
+<td><%=link_to "show User",user_path(u)%></td>
+<td><%=link_to "edit User",edit_user_path(u)%></td>
+<td><%=link_to "delete User",user_path(u),:method=>:delete%></td>
+
+
+<%end%>
+</tr>
+</table>
+<%=link_to "create User",new_user_path%>
+
+</html>

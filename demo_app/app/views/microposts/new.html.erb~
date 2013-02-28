@@ -1,0 +1,6 @@
+<html>
+<h1>NEW_USER</h1>
+<%= render :partial => "form" %>
+<%=link_to "BACK ",users_path%>
+
+</html>
